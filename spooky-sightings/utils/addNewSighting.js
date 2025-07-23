@@ -4,6 +4,7 @@ import { getData } from './getData.js'
 
 export const addNewSighting = async (newSighting) => {
     try {
+        console.log(newSighting)
         const sightings = await getData()
         sightings.push(newSighting)
 
