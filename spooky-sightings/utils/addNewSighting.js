@@ -1,12 +1,18 @@
 import path from 'node:path'
 import fs from 'node:fs/promises'
+import { randomUUID } from 'node:crypto'
 import { getData } from './getData.js'
 
 export const addNewSighting = async (newSighting) => {
     try {
-        console.log(newSighting)
+        // Add UUID to the new sighting
+        const sightingWithUUID = {
+            uuid: randomUUID(),
+            ...newSighting
+        }
+
         const sightings = await getData()
-        sightings.push(newSighting)
+        sightings.push(sightingWithUUID)
 
         const pathJSON = path.join('data', 'data.json')
 
