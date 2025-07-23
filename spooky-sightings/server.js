@@ -1,6 +1,6 @@
 import { createServer } from 'node:http'
 import { serveStatic } from './utils/serveStatic.js'
-import { handleGET, handlePOST } from './handlers/routeHandlers.js'
+import { handleGET, handlePOST, handleNews } from './handlers/routeHandlers.js'
 
 const PORT = 8000
 
@@ -16,6 +16,8 @@ const server = createServer(async (req, res) => {
         }
     } else if (!req.url.startsWith('/api')) {
         return await serveStatic(req, res, __dirname)
+    } else if (req.url === '/api/news') {
+        return await handleNews(req, res)
     }
 })
 
