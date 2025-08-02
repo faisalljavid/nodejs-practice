@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "Vinyl record store catalog with search and genre filtering",
   "main": "server.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "author": "Faisal Javid",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
