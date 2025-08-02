@@ -10,6 +10,10 @@ async function viewAllProducts() {
 
     try {
         const products = await db.all('SELECT * FROM products')
+        // Neater table display
+        const displayItems = products.map(({ id, title, artist, year, stock }) => {
+            return { id, title, artist, year, stock }
+        })
         console.table(products)
     } catch (err) {
         console.error('Error fetching products:', err.message)
@@ -18,4 +22,4 @@ async function viewAllProducts() {
     }
 }
 
-viewAllProducts()
+viewAllProducts() 
